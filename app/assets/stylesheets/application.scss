@@ -11,3 +11,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.jumbotron {
+  background-image: url("https://source.unsplash.com/random");
+  background-size: cover;
+}
