@@ -3,9 +3,9 @@
   <div class="grid-container">
     <%@flats.each do |flat|%>
       <div class="card-trip">
-        <% if flat.photo.attached? %> 
-        <%= cl_image_tag flat.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face %> 
-      <% else %> 
+        <% if flat.photo.attached? %>
+        <%= cl_image_tag flat.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face %>
+      <% else %>
         <%= image_tag "https://imagizer.imageshack.com/img922/2089/6PYv26.png", opacity: 0.9, crop: :thumb %>
       <% end %>
         <div class="card-content">
