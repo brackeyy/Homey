@@ -1,1 +1,8 @@
 <h1>This is the show.</h1>
+<br>
+<%= cl_image_tag @flat.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face %> 
+<%= @flat.title %>
+<%= @flat.city %>
+<%= @flat.description %>
+<%= @flat.price %>
+<%= link_to "Back", flats_path%>

@@ -1,5 +1,14 @@
 <ul><%@flats.each do |flat|%>
-  <li><%=flat.title%> - <%=flat.city%> - <%=flat.price%> <%=link_to "See details", flat_path(flat)%></li>
+  <li style="list-style: none">
+      <% if flat.photo.attached? %> 
+        <%= cl_image_tag flat.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face %> 
+        <%= link_to flat.title, flat_path(flat) %>
+      <% else %> 
+        <%= "You can upload a picture"%> 
+      <% end %>
+
+    </div>
+    </li>
+  </ul>
 <%end%>
-</ul>
 <%=link_to "Add new flat", new_flat_path%>
