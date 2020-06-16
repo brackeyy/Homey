@@ -1,14 +1,24 @@
-<ul><%@flats.each do |flat|%>
-  <li style="list-style: none">
-      <% if flat.photo.attached? %> 
-        <%= cl_image_tag flat.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face %> 
-        <%= link_to flat.title, flat_path(flat) %>
-      <% else %> 
-        <%= "You can upload a picture"%> 
-      <% end %>
+<div class="container">
+<h1 class="title-offers">All the available offers</h1>
+  <div class="grid-container">
+    <%@flats.each do |flat|%>
+      <div class="card-trip">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= flat.title %></h2>
+            <p><%= flat.description %></p>
+          </div>
+          <h2 class="card-trip-pricing"><%= flat.price %> €</h2>
+        </div>
+        <div class="button-offer">
+          <p>Check offer</p>
+        </div>
+      </div>
+    <%end%>
+    
+    <%=link_to "Add new flat", new_flat_path%>
 
-    </div>
-    </li>
-  </ul>
-<%end%>
-<%=link_to "Add new flat", new_flat_path%>
+
+  </div>
+</div>
