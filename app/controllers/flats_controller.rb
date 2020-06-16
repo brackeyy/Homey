@@ -14,8 +14,8 @@ class FlatsController < ApplicationController
   def create
     @flat = Flat.new(flat_params)
     @flat.user = current_user
-      if @flat.save
-        redirect_to @flats
+      if @flat.save!
+        redirect_to flats_path
       else
         render :new
       end
