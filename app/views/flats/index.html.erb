@@ -16,11 +16,10 @@
             <h2 class="card-trip-pricing"><%= flat.price %> €</h2>
           </div>
           <div class="button-offer-container">
-            <%=link_to "Check offer", flat_path(flat), class: "button-offer" %>
+            <%=link_to "Check offer", flat_path(flat), class: "btn button-offer" %>
           </div>
         </div>
       </div>
     <%end%>
   </div>
-  <%=link_to "Add new flat", new_flat_path, class: "text-right"%>
 </div>
