@@ -1,4 +1,5 @@
 <ul><%@flats.each do |flat|%>
-  <li><%=flat.title%> - <%=flat.city%> - <%=flat.price%></li>
+  <li><%=flat.title%> - <%=flat.city%> - <%=flat.price%> <%=link_to "See details", flat_path(flat)%></li>
 <%end%>
 </ul>
+<%=link_to "Add new flat", new_flat_path%>
