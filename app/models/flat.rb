@@ -5,4 +5,5 @@ class Flat < ApplicationRecord
   # has_many :users, through: :bookings
 
   validates :title, :city, :price, :description, presence: true
+
 end
