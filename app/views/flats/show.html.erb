@@ -1,32 +1,6 @@
-<!-- <h1>This is the show.</h1> -->
-<!-- <br> -->
 
-<%#= @flat.title %>
-<%#= @flat.city %>
-<%#= @flat.description %>
-<%#= @flat.price %>
-<%#= link_to "Back", flats_path%>
-
-
-<div class="card-trip" id="banner-show">
-  <% if @flat.photo.attached? %> 
-        <%= cl_image_tag @flat.photo.key, height: 300 %> 
-      <% else %> 
-        <%= "You can upload a picture"%> 
-<% end %>
-  <div class="card-trip-infos">
-    <div>
-      <h2><%= @flat.title %></h2>
-      <h5><%= @flat.city %></h5>
-      <br>
-      <p><%= @flat.description %></p>
-    </div>
-    <h2 class="card-trip-pricing"><%= @flat.price %> € </h2>
-  </div>
-</div>
-<%= link_to "Back", flats_path%>
-
-<div class="jumbotron">
+<% if @flat.photo.attached? %> 
+<div class="card-show" style="background-image: url('<%= cl_image_path @flat.photo.key, height: 500, width: 400, crop: :fill %>')">
   <h1 class="display-4"><%= @flat.title %></h1>
   <p class="lead"><%= @flat.city %></p>
   <p><%= @flat.price %> € </p>
@@ -34,4 +8,20 @@
   <p><%= @flat.description %></p>
 
 </div>
+<% else %> 
+<div class="card-show">
+  <h1 class="display-4"><%= @flat.title %></h1>
+  <p class="lead"><%= @flat.city %></p>
+  <p><%= @flat.price %> € </p>
+  <hr class="my-4">
+  <p><%= @flat.description %></p>
+</div>
+<% end %>
+
+
 <%= link_to "Back", flats_path%>
+
+
+
+
+
