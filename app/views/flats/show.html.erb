@@ -1,12 +1,27 @@
-<h1>This is the show.</h1>
-<br>
-<% if @flat.photo.attached? %> 
-        <%= cl_image_tag @flat.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face %> 
+<!-- <h1>This is the show.</h1> -->
+<!-- <br> -->
+
+<%#= @flat.title %>
+<%#= @flat.city %>
+<%#= @flat.description %>
+<%#= @flat.price %>
+<%#= link_to "Back", flats_path%>
+
+
+<div class="card-trip" id="banner-show">
+  <% if @flat.photo.attached? %> 
+        <%= cl_image_tag @flat.photo.key, height: 300 %> 
       <% else %> 
         <%= "You can upload a picture"%> 
 <% end %>
-<%= @flat.title %>
-<%= @flat.city %>
-<%= @flat.description %>
-<%= @flat.price %>
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= @flat.title %></h2>
+      <h5><%= @flat.city %></h5>
+      <br>
+      <p><%= @flat.description %></p>
+    </div>
+    <h2 class="card-trip-pricing"><%= @flat.price %> € </h2>
+  </div>
+</div>
 <%= link_to "Back", flats_path%>
