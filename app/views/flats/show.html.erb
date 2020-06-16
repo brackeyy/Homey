@@ -25,3 +25,13 @@
   </div>
 </div>
 <%= link_to "Back", flats_path%>
+
+<div class="jumbotron">
+  <h1 class="display-4"><%= @flat.title %></h1>
+  <p class="lead"><%= @flat.city %></p>
+  <p><%= @flat.price %> € </p>
+  <hr class="my-4">
+  <p><%= @flat.description %></p>
+
+</div>
+<%= link_to "Back", flats_path%>
