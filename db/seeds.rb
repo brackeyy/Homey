@@ -9,5 +9,3 @@
 user1 = User.create(email: "ggg@ggg.com", password: "123456")
 user2 = User.create(email: "fff@ggg.com", password: "123456")
 
-Flat.create(title: "Hassan's loft", city: "Marbella", price: 2000, user: user1, description: "Come live in a super flat in Marbella to live with Hassan, a 75 years old entrepreneur eager to be friend with young people")
-Flat.create(title: "Louis' mansion", city: "Geneva", price: 4000, user: user2, description: "Louis is a single man, 79 years old who loves golf and wants to have new friends")
