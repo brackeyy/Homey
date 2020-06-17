@@ -36,9 +36,7 @@
 }
 
 
-.card-show {
-background-size: cover;
-}
+
 
 .fa-city {
   color: #6CBDB7;
@@ -51,5 +49,21 @@ background-size: cover;
   display: flex;
   #text {
     color: grey;
+  }
+}
+
+.services-info {
+  display: flex;
+  text-align: center;
+  padding-bottom: 20px;
+  .fas {
+    font-size: 20px;
+    color: #6CBDB7;
+  }
+}
+
+@media (max-width: 700px) {
+  .services-info {
+    flex-wrap: wrap;
   }
 }

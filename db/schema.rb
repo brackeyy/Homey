@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(version: 2020_06_17_125334) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "service"
     t.boolean "groceries", default: false
     t.boolean "laundry", default: false
     t.boolean "sexy_time", default: false
