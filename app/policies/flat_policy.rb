@@ -1,7 +1,8 @@
 class FlatPolicy < ApplicationPolicy
   class Scope < Scope
+
     def resolve
-      scope.all
+      scope.all # returns flats with coordinates
     end
   end
 # done by the scope resolve

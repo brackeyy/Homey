@@ -9,8 +9,8 @@ require "open-uri"
 Flat.destroy_all
 User.destroy_all
 
-user1 = User.create(email: "ggg@ggg.com", password: "123456")
-user2 = User.create(email: "fff@ggg.com", password: "123456")
+user1 = User.create(email: "simon@hotmail.com", password: "123456")
+user2 = User.create(email: "nik@gmail.com", password: "123456")
 
 puts "Creating flats.."
 #1
