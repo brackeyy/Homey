@@ -1,0 +1,21 @@
+.title-offers {
+  text-align: center;
+  padding-top: 15px;
+  border-bottom: 1px solid #cdccd0;
+  padding-bottom: 5px;
+  width: 800px;
+  margin: 0 auto;
+}
+
+.title-new-listings {
+  padding-top: 15px;
+  border-bottom: 1px solid #cdccd0;
+  padding-bottom: 5px;
+  width: 800px;
+}
+
+@media (max-width: 700px) {
+  .title-offers {
+    width: 400px;
+  }
+}

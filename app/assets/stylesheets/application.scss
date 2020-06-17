@@ -13,6 +13,8 @@
 @import "pages/index";
 
 .jumbotron {
-  background-image: url("https://source.unsplash.com/random");
   background-size: cover;
+  background-position-x: center;
+  background-position-y: 40%;
 }
+
