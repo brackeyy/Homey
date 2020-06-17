@@ -1,12 +1,14 @@
 <!-- # simple form  -->
+<% collection = ["Groceries", "Laundry", "Sexy time", "Cooking", "Gardening", "Cleaning"] %>
 <div class="container" style="padding: 20px">
   <h2 style="padding: 0px 250px">Post a flat:</h2>
   <div class="form-inputs" style="height: 400px; padding: 50px 250px">
     <%= simple_form_for(@flat) do |f| %>
     <%= f.input :title %>
+    <%= f.input :city %>
     <%= f.input :description %>
     <%= f.input :price %>
-    <%= f.input :city %>
+    <%= f.input :service, as: :check_boxes, collection: collection, wrapper: :vertical_collection_inline %>
     <%= f.input :photo, as: :file %>
     <%= f.submit class: 'btn btn-primary' %>
     <% end %>
