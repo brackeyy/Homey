@@ -56,9 +56,6 @@ ActiveRecord::Schema.define(version: 2020_06_17_111056) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.float "latitude"
-    t.float "longitude"
-    t.boolean "service"
     t.boolean "groceries", default: false
     t.boolean "laundry", default: false
     t.boolean "sexy_time", default: false

@@ -1,0 +1,14 @@
+.form-inputs {
+
+}
+
+@media (max-width: 700px) {
+}
+
+@media (min-width: 701px) {
+  form#new_flat {
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+}

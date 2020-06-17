@@ -4,6 +4,7 @@
   padding: 8px 24px;
   border-radius: 50px;
   font-weight: lighter;
+  margin-top: 15px;
   opacity: 0.8;
   transition: opacity 0.3s ease;
   a {
@@ -12,6 +13,27 @@
   }
 }
 
+.button-offer {
+  background: #50c0b8;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  margin-top: 15px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  width: 200px;
+}
+
+.button-centered {
+  justify-content: center;
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+  color: #4A4A4A;
+}
 .button-offer-container {
   text-align: center;
   margin: 0 auto;
