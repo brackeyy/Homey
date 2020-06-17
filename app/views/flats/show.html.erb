@@ -1,4 +1,4 @@
-<%= link_to "Back", flats_path%>
+
 <div class="container">
 <div class="card-show">
  <img src="<%= cl_image_path @flat.photo.key%>">
@@ -20,3 +20,7 @@
      style="width: 100%; height: 600px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+     <br>
+<div class="button-offer-container">
+<%= link_to "Back", flats_path, class: "btn button-offer"%>
+</div>
