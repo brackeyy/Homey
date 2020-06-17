@@ -24,10 +24,11 @@ class FlatsController < ApplicationController
       end
   end
 
-private
+  private
 
-def flat_params
-  params.require(:flat).permit(:title, :city, :description, :price, :photo, :service)
+  def flat_params
+    params.require(:flat).permit(:title, :city, :description, :price, :photo, :cooking, :sexy_time, :cleaning, :change_diapers, :laundry, :gardening)
+  end
+
 end
 
-end
