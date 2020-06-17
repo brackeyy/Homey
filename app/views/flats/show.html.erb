@@ -1,27 +1,37 @@
 
-<% if @flat.photo.attached? %> 
-<div class="card-show" style="background-image: url('<%= cl_image_path @flat.photo.key, height: 500, width: 400, crop: :fill %>')">
-  <h1 class="display-4"><%= @flat.title %></h1>
-  <p class="lead"><%= @flat.city %></p>
-  <p><%= @flat.price %> € </p>
+<%# @flat.photo.attached? %> 
+ <!-- <div class="card-show" style="background-image: url('<%#= cl_image_path @flat.photo.key, height: 500, width: 400, crop: :fill %>')">
+  <h1 class="display-4"><%#= @flat.title %></h1>
+  <p class="lead"><%#= @flat.city %></p>
+  <p><%#= @flat.price %> € </p>
   <hr class="my-4">
-  <p><%= @flat.description %></p>
-
-</div>
-<% else %> 
+  <p><%#= @flat.description %></p>
+ -->
+<!-- </div>
+<%# else %> 
 <div class="card-show">
-  <h1 class="display-4"><%= @flat.title %></h1>
-  <p class="lead"><%= @flat.city %></p>
-  <p><%= @flat.price %> € </p>
+  <h1 class="display-4"><%#= @flat.title %></h1>
+  <p class="lead"><%#= @flat.city %></p>
+  <p><%#= @flat.price %> € </p>
   <hr class="my-4">
-  <p><%= @flat.description %></p>
+  <p><%#= @flat.description %></p>
 </div>
-<% end %>
-
+<%# end %> -->
 
 <%= link_to "Back", flats_path%>
-
-
-
+<div class="container">
+<div class="card-show">
+ <img src="<%= cl_image_path @flat.photo.key%>">
+  <div class="card-show-infos">
+    <div>
+      <h2 id="title"><%= @flat.title %></h2>
+      <p><%= @flat.description %></p>
+      <p><%= @flat.city %></p>
+    </div>
+    <h2 class="card-show-user"><%= @flat.user.email %></h2>
+    <h2 class="card-show-pricing"><%= @flat.price %> € </h2>
+  </div>
+</div>
+</div>
 
 
