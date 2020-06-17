@@ -6,5 +6,6 @@ class Flat < ApplicationRecord
   # has_many :users, through: :bookings
 
   validates :title, :city, :price, :description, presence: true
-
+  geocoded_by :city
+  after_validation :geocode, if: :will_save_change_to_city?
 end
