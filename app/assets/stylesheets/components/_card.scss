@@ -2,26 +2,26 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
-
-.card-trip > img {
+  border-radius: 5px;
+  &:hover{
+    opacity: 0.8;
+  }
+  img{
   height: 200px;
   width: 100%;
   object-fit: cover;
-}
-
-.card-trip h2 {
+  }
+  h2{
   font-size: 20px;
   font-weight: bold;
   margin: 0;
-}
-
-.card-trip p {
+  }
+  p{
   font-size: 12px;
   opacity: .7;
   margin: 0;
+  }
 }
-
 
 .card-trip .card-trip-infos {
   padding: 16px;
@@ -34,9 +34,6 @@
 .card-trip-pricing {
   min-width: 60px;
 }
-
-
-
 
 .fa-city {
   color: #6CBDB7;
@@ -66,4 +63,9 @@
   .services-info {
     flex-wrap: wrap;
   }
+}
+.card-link:hover{
+  text-decoration: none !important;
+  color: grey;
+  opacity: 0.8;
 }
