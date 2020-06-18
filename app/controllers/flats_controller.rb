@@ -2,6 +2,15 @@ class FlatsController < ApplicationController
   def index
     @flats = policy_scope(Flat)
 
+    if params[:query].present?
+      sql_query = " \
+        flats.title @@ :query \
+        OR flats.city @@ :query \
+      "
+      @flats = Flat.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @flats = flat.all
+    end
   end
 
   def show
