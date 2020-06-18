@@ -1,6 +1,12 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background-color: transparent;
+  transition: 0.5s background-color ease;
+  top: 0;
+}
+
+.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
+  color: white;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -15,5 +21,14 @@
 @media (min-width: 720px) {
   li.nav-item {
     display: flex;
+  }
+}
+
+.navbar-lewagon-white {
+  background-color: white;
+  z-index: 2;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  .nav-link {
+    color: black !important; 
   }
 }
