@@ -23,7 +23,26 @@
     <%if @flat.change_diapers == true%><p><i class="fas fa-baby"> Change diapers</i></p><%end%>
   </div>
 </div>
+<div class="container">
+  <h2 class="title-offers">Create a booking:</h2>
+  <div class="form-inputs">
+    <%= simple_form_for ([@flat, @booking]) do |f| %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <div class="button-centered"><%= f.submit class: 'btn button-offer' %></div>
+    <% end %>
+  </div>
 </div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+</div>
+
 
 
 <div id="map"
