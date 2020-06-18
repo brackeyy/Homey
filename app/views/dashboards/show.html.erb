@@ -17,8 +17,8 @@
     <p><strong>Start date:</strong> <%= booking.start_date %></p>
     <p><strong>End date:</strong> <%= booking.end_date %></p>
     <p><strong>Status:</strong> <%= booking.status %></p>
-    <%= link_to 'Reject', flat_bookings_path, method: :delete, class: 'btn btn-primary' %>
-    <%= link_to 'Confirm', flat_bookings_path, method: :patch, class: 'btn btn-primary' %>
+    <%#= link_to 'Reject', flat_bookings_path, method: :delete, class: 'btn btn-primary' %>
+    <%#= link_to 'Confirm', flat_bookings_path, method: :patch, class: 'btn btn-primary' %>
   </div>
 </div>
 <% end %>
@@ -50,9 +50,16 @@
           </div>
         </div>
       <%end%>
+      <% flat.bookings.each do |booking| %>
+      <ul>
+        <li><%= booking.user.email%></li>
+        <li><%= booking.start_date %></li>
+        <li><%= booking.end_date %> </li>
+        <li><%= booking.status %></li>
+        <%= link_to 'Accept', "/flats/#{booking.flat.id}/bookings/#{booking.id}?status=accepted&fruit=banana", method: :patch %>
+        <%= link_to 'Reject', "/flats/#{booking.flat.id}/bookings/#{booking.id}?status=rejected", method: :patch %>
+      </ul>
+      <% end %>
     <%end%>
   </div>
-
-
-
 </div>
