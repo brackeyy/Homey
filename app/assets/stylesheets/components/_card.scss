@@ -1,7 +1,7 @@
 .card-trip {
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 10rpx rgba(0,0,0,0.2);
   border-radius: 5px;
   &:hover{
     opacity: 0.8;
@@ -45,7 +45,7 @@
   font-size: 16px;
   display: flex;
   #text {
-    color: grey;
+    color: rgba(0, 0, 0, 0.2);
   }
 }
 
@@ -64,8 +64,13 @@
     flex-wrap: wrap;
   }
 }
-.card-link:hover{
+.card-link{
+  color: rgba(0, 0, 0, 0.8);
+  &:hover{
   text-decoration: none !important;
-  color: grey;
+  color: rgba(0, 0, 0, 0.8);
   opacity: 0.8;
 }
+
+}
+
