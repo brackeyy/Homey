@@ -17,6 +17,7 @@ def create
   @booking = Booking.new(booking_params_create)
     @booking.user = current_user
     @booking.flat = @flat
+    @booking.status = "pending"
     authorize @booking
 
       if @booking.save!
@@ -26,23 +27,28 @@ def create
       end
 end
 
-# def edit
-#   @booking = Booking.find(params[:id])
-#   authorize @booking
-# end
+def edit
+  @booking = Booking.find(params[:id])
+  authorize @booking
+end
 
-# def update
-#   if @booking.update(booking_params_edit)
-#       redirect_to @booking, notice: 'Booking was successfully updated.'
-#     else
-#       render :edit
-#     end
-#   authorize @booking
-# end
+def update
+  @flat = Flat.find(params[:flat_id])
+  @booking.flat = @flat
+  @booking.user = current_user
+  if @booking.update(booking_params_edit)
+      redirect_to @booking, notice: 'Booking was successfully updated.'
+    else
+      render :edit
+    end
+  authorize @booking
+end
 
-# def destroy
-#   authorize @booking
-# end
+def destroy
+  @booking = Booking.find(params[:id])
+  @booking.delete
+  authorize @booking
+end
 
 
 private

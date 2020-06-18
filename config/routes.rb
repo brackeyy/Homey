@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :flats do
-    resources :bookings, only: [:create]
+    resources :bookings, except: [:index]
   end
 get '/dashboard', to: 'dashboards#show'
 end
