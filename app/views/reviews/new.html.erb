@@ -1,0 +1,17 @@
+<h1> Add a review</h1>
+
+
+
+
+
+
+<!-- XXXX will generate the path, the route where you're sending the information of the form -->
+<!-- the information is the params of the user -->
+<!-- the info is always sent to the create action -->
+<%= simple_form_for([@booking, @review]) do |f| %>
+<!-- [parent_element_instance, child_element_instance] -->
+<%= f.input :content %>
+<%= f.input :rating %>
+
+<%= f.submit %>
+<% end %>
