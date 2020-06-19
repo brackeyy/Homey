@@ -1,8 +1,9 @@
 <div class="top_container">
 </div>
 <div class="container">
+<div class="booking-history">
 
- <h2>Here is your booking history:</h2>
+ <h2 class="title-new-listings">Here is your booking history:</h2>
  <% @bookings.each do |booking|%>
   <div class="card-product my-3 rounded">
     <% if booking.flat.photos.attached? %>
@@ -47,7 +48,7 @@
     </div>
   </div>
   <% unless booking.review %>
-    <h4> Add a review</h4>
+    <h4> How was your stay? Add a review!</h4>
     <!-- XXXX will generate the path, the route where you're sending the information of the form -->
     <!-- the information is the params of the user -->
     <!-- the info is always sent to the create action -->
@@ -59,12 +60,13 @@
     <% end %>
   <% end %>
 <% end %>
+</div>
 
 
 
   <hr>
-
-  <h2>List of your flats:</h2>
+<div class="booking-history">
+  <h2 class= "title-new-listings">List of your flats:</h2>
 
   <div class="grid-container">
     <% @flats.each do |flat|%>
@@ -92,12 +94,15 @@
               <div><%= booking.start_date %></div>
               <div><%= booking.end_date %> </div>
               <div><%= booking.status %></div>
-              <%= link_to 'Accept', "/flats/#{booking.flat.id}/bookings/#{booking.id}?status=accepted&fruit=banana", method: :patch, remote: true, class: "btn-sm btn-success" %>
-              <%= link_to 'Reject', "/flats/#{booking.flat.id}/bookings/#{booking.id}?status=rejected", method: :patch, remote: true, class: "btn-sm btn-danger" %>
+                <div class="buttons-decision">
+                  <%= link_to 'Accept', "/flats/#{booking.flat.id}/bookings/#{booking.id}?status=accepted&fruit=banana", method: :patch, remote: true, class: "btn-accept" %>
+                  <%= link_to 'Reject', "/flats/#{booking.flat.id}/bookings/#{booking.id}?status=rejected", method: :patch, remote: true, class: "btn-reject" %>
+                </div>
             </div>
           <% end %>
         <% end %>
       </div>
     <%end%>
+  </div>
   </div>
 </div>

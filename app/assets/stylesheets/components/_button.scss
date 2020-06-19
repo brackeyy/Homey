@@ -13,6 +13,38 @@
   }
 }
 
+.btn-accept {
+  background: #447604;
+  color: white;
+  padding: 4px 20px;
+  border-radius: 50px;
+  font-weight: lighter;
+  margin-top: 15px;
+  transition: opacity 0.3s ease;
+  width: 200px;
+  &:hover{
+    opacity: 1;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.btn-reject {
+  background: #DE1A1A;
+  color: white;
+  padding: 4px 20px;
+  border-radius: 50px;
+  font-weight: lighter;
+  margin-top: 15px;
+  transition: opacity 0.3s ease;
+  width: 200px;
+  &:hover{
+    opacity: 1;
+    color: white;
+    text-decoration: none;
+  }
+}
+
 .button-more-info {
   background: #a79c9d;
   color: white;
@@ -61,3 +93,5 @@
 .contact-price-booking .button-offer:hover {
   text-decoration: none;
 }
+
+
