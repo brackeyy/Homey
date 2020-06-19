@@ -14,7 +14,7 @@ end
 
 def create
   @flat = Flat.find(params[:flat_id])
-  @booking = Booking.new
+  @booking = Booking.new(booking_params)
   @booking.user = current_user
   @booking.flat = @flat
   authorize @booking
@@ -49,6 +49,10 @@ end
 #   authorize @booking
 # end
 
+private
 
+def booking_params
+  params.require(:booking).permit(:end_date, :start_date)
+end
 
 end

@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
     if @review.save #save returns you a boolean
       redirect_to dashboard_path
     else
-      render :new #this is not a new http request, this is just rendering the action again
+      render "dashboards/show" #this is not a new http request, this is just rendering the action again
     end
   end
 
