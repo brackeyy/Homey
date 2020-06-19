@@ -9,7 +9,7 @@ class FlatsController < ApplicationController
       "
       @flats = Flat.where(sql_query, query: "%#{params[:query]}%")
     else
-      @flats = flat.all
+      @flats = Flat.all
     end
   end
 

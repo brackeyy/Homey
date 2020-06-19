@@ -16,6 +16,14 @@
     <h4><%=  booking.flat.title %></h4>
     <p>Start date: <%= booking.start_date %></p>
     <p>End date:  <%= booking.end_date %></p>
+    <%=mail_to booking.user.email, "Email the host", class: "email-to"%>
+      <div class="price-booking">
+      <p>Price of the reservation: <% if (booking.end_date - booking.start_date) == 0%></p>
+      <%=booking.flat.price%> €
+      <%else%>
+      <%=(booking.flat.price * (booking.end_date - booking.start_date) + booking.flat.price).to_i%> €
+      <%end%>
+    </div>
   </div>
 </div>
 <% end %>
