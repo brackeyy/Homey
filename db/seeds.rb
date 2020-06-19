@@ -11,9 +11,13 @@ Booking.destroy_all
 Flat.destroy_all
 User.destroy_all
 
+puts "Creating users.."
+
 user1 = User.create(email: "simon@hotmail.com", password: "123456")
 user2 = User.create(email: "nik@gmail.com", password: "123456")
+user3 = User.create(email: "linda@gmail.com", password: "123456")
 
+puts "Users created."
 puts "Creating flats.."
 #1
 file1 = URI.open('https://images.pexels.com/photos/2459/stairs-home-loft-lifestyle.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500')
@@ -72,7 +76,7 @@ flat6.photos.attach(io: file5, filename: 'flat5.png', content_type: 'image/png')
 file7 = URI.open('https://images.pexels.com/photos/3965520/pexels-photo-3965520.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500')
 file8 = URI.open('https://images.pexels.com/photos/3679601/pexels-photo-3679601.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500')
 file9 = URI.open('https://images.pexels.com/photos/3875428/pexels-photo-3875428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500')
-flat7 = Flat.create!(user: user2, title: 'Best flat ever', city: "Barcelona", price: 120, description: "Hi, my name is Lucia. I'm 74 years old and as my husband passed away 3 years ago I am feeling very lonely. ;) Looking for a nice student to share my flat with and have some deeeeep convos...", groceries: true, sexy_time: true, cooking: true)
+flat7 = Flat.create!(user: user3, title: 'Best flat ever', city: "Barcelona", price: 120, description: "Hi, my name is Lucia. I'm 74 years old and as my husband passed away 3 years ago I am feeling very lonely. ;) Looking for a nice student to share my flat with and have some deeeeep convos...", groceries: true, sexy_time: true, cooking: true)
 flat7.photos.attach(io: file7, filename: 'flat7.png', content_type: 'image/png')
 flat7.photos.attach(io: file8, filename: 'flat8.png', content_type: 'image/png')
 flat7.photos.attach(io: file9, filename: 'flat9.png', content_type: 'image/png')
@@ -81,7 +85,7 @@ flat7.photos.attach(io: file9, filename: 'flat9.png', content_type: 'image/png')
 file7 = URI.open('https://images.pexels.com/photos/3965520/pexels-photo-3965520.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500')
 file8 = URI.open('https://images.pexels.com/photos/3679601/pexels-photo-3679601.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500')
 file9 = URI.open('https://images.pexels.com/photos/3875428/pexels-photo-3875428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500')
-flat8 = Flat.create!(user: user2, title: 'Bar-style appartment', city: "Barcelona", price: 250, description: "Hi, my name is Lucia. I'm 74 years old and as my husband passed away 3 years ago I am feeling very lonely. ;) Looking for a nice student to share my flat with and have some deeeeep convos...", groceries: true, sexy_time: true, cooking: true)
+flat8 = Flat.create!(user: user3, title: 'Bar-style appartment', city: "Barcelona", price: 250, description: "Hi, my name is Lucia. I'm 74 years old and as my husband passed away 3 years ago I am feeling very lonely. ;) Looking for a nice student to share my flat with and have some deeeeep convos...", groceries: true, sexy_time: true, cooking: true)
 flat8.photos.attach(io: file8, filename: 'flat8.png', content_type: 'image/png')
 flat8.photos.attach(io: file7, filename: 'flat7.png', content_type: 'image/png')
 flat8.photos.attach(io: file9, filename: 'flat9.png', content_type: 'image/png')
@@ -95,11 +99,14 @@ flat9.photos.attach(io: file9, filename: 'flat9.png', content_type: 'image/png')
 flat9.photos.attach(io: file7, filename: 'flat7.png', content_type: 'image/png')
 flat9.photos.attach(io: file8, filename: 'flat8.png', content_type: 'image/png')
 
-
+puts "Flats created."
+puts "Creating Bookings"
 #Bookings
 booking1 = Booking.create!(user: user1, flat: flat7, status: "pending", start_date: "2020-04-02", end_date: "2020-04-02")
-booking2 = Booking.create!(user: user2, flat: flat1, status: "pending", start_date: "2020-06-03", end_date: "2020-06-01")
+booking4 = Booking.create!(user: user2, flat: flat8, status: "pending", start_date: "2020-05-03", end_date: "2020-06-01")
+booking2 = Booking.create!(user: user1, flat: flat1, status: "pending", start_date: "2020-06-03", end_date: "2020-06-01")
 booking3 = Booking.create!(user: user2, flat: flat2, status: "pending", start_date: "2020-02-26", end_date: "2020-03-02")
 
+puts "Bookings created."
 
-puts "Flats created."
+
