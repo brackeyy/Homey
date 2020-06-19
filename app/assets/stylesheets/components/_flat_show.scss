@@ -5,7 +5,7 @@
 }
 
 .card-show > img {
-  height: 500px;
+  height: 200px;
   width: 100%;
   object-fit: cover;
 }
@@ -44,4 +44,15 @@
   right: 16px;
   top: 20px;
 }
+
+.carousel-inner > .carousel-item > img {
+  margin: 0 auto;
+  height: 500px;
+  object-fit: cover;
+
+
+
+
+}
+
 
