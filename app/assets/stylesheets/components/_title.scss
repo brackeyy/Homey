@@ -19,3 +19,18 @@
     width: 400px;
   }
 }
+
+.h4-booking {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.h4-booking:before {
+  content : "";
+  position: absolute;
+  left    : 0;
+  bottom  : 0;
+  height  : 2px;
+  width: 45%;
+  border-bottom: 0.5px solid #cdccd0;
+}

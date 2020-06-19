@@ -13,18 +13,20 @@
         <%= image_tag "https://imagizer.imageshack.com/img922/2089/6PYv26.png", opacity: 0.9, crop: :thumb %>
       <% end %>
       <div class="card-product-infos">
-        <h4><%=  booking.flat.title %></h4>
+        <h4 class="h4-booking"><%=  booking.flat.title %></h4>
         <p><strong>Start date:</strong> <%= booking.start_date %></p>
         <p><strong>End date:</strong> <%= booking.end_date %></p>
         <p><strong>Status:</strong> <%= booking.status %></p>
+
+        <div class="price-reservation">
+          <p>Price of the reservation:  <% if (booking.end_date - booking.start_date) == 0%></p>
+            <%= booking.flat.price%> €
+          <%else%>
+            <%= (booking.flat.price * (booking.end_date - booking.start_date) + booking.flat.price).to_i%> €
+          <%end%>
+
         <%=mail_to booking.user.email, "Email the host", class: "email-to"%>
-        <!-- <div class="price-booking">
-          <p>Price of the reservation:<#% if (booking.end_date - booking.start_date) == 0%></p>
-            <%=booking.flat.price%> €
-          <%#else%>
-            <%#=(booking.flat.price * (booking.end_date - booking.start_date) + booking.flat.price).to_i%> €
-          <%#end%>
-        </div> -->
+
         <div class="review">
           <% if booking.review %>
         "<%= booking.review.content %>
@@ -32,8 +34,13 @@
         ⭐️
         <% end %>"
         <% end %>
+
         </div>
 
+      </div>
+      <div class="contact-price-booking">
+        <%= link_to "See flat info", flat_path(booking.flat), class: "button-more-info" %>
+        <%=mail_to booking.user.email, " Email the host", class: "email-to mt-3 button-offer"%>
       </div>
     </div>
     <h4> Add a review</h4>
