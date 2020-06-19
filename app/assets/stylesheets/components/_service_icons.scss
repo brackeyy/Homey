@@ -1,0 +1,23 @@
+.services-info {
+  display: flex;
+  text-align: center;
+  padding-bottom: 20px;
+  margin: 0 150px;
+  .fas {
+    font-size: 20px;
+    color: #white;
+  }
+}
+
+@media (max-width: 700px) {
+  .services-info {
+    flex-wrap: wrap;
+  }
+}
+.service-icons{
+  border: 1px solid #50c0b8;
+  padding: 10px;
+  border-radius: 30px;
+  color: white;
+  background-color: #50c0b8;
+}
