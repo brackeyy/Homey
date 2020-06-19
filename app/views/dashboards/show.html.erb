@@ -17,19 +17,42 @@
         <p><strong>Start date:</strong> <%= booking.start_date %></p>
         <p><strong>End date:</strong> <%= booking.end_date %></p>
         <p><strong>Status:</strong> <%= booking.status %></p>
+
         <div class="price-reservation">
           <p>Price of the reservation:  <% if (booking.end_date - booking.start_date) == 0%></p>
             <%= booking.flat.price%> €
           <%else%>
             <%= (booking.flat.price * (booking.end_date - booking.start_date) + booking.flat.price).to_i%> €
           <%end%>
+
+        <%=mail_to booking.user.email, "Email the host", class: "email-to"%>
+
+        <div class="review">
+          <% if booking.review %>
+        "<%= booking.review.content %>
+        <% booking.review.rating.times do  %>
+        ⭐️
+        <% end %>"
+        <% end %>
+
         </div>
+
       </div>
       <div class="contact-price-booking">
         <%= link_to "See flat info", flat_path(booking.flat), class: "button-more-info" %>
         <%=mail_to booking.user.email, " Email the host", class: "email-to mt-3 button-offer"%>
       </div>
     </div>
+    <h4> Add a review</h4>
+<!-- XXXX will generate the path, the route where you're sending the information of the form -->
+<!-- the information is the params of the user -->
+<!-- the info is always sent to the create action -->
+      <%= simple_form_for([booking, @review]) do |f| %>
+<!-- [parent_element_instance, child_element_instance] -->
+        <%= f.input :content %>
+        <%= f.input :rating %>
+        <%= f.submit %>
+      <% end %>
   <% end %>
 
 
