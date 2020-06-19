@@ -3,9 +3,7 @@
 <div class="container">
 
  <h2>Here is your booking history:</h2>
-
-
- <%@bookings.each do |booking|%>
+ <% @bookings.each do |booking|%>
   <div class="card-product my-3 rounded">
     <% if booking.flat.photos.attached? %>
       <%= cl_image_tag booking.flat.photos.first.key, width: 150, height: 150, gravity: :face %>
@@ -13,36 +11,38 @@
       <%= image_tag "https://imagizer.imageshack.com/img922/2089/6PYv26.png", opacity: 0.9, crop: :thumb %>
     <% end %>
     <div class="card-product-infos">
-      <h4 class="h4-booking"><%=  booking.flat.title %></h4>
-      <p><strong>Start date:</strong> <%= booking.start_date %></p>
-      <p><strong>End date:</strong> <%= booking.end_date %></p>
-      <p><strong>Status:</strong> <%= booking.status %></p>
+      <div class="d-flex justify-content-between w-100">
+        <div>
+          <h4 class="h4-booking"><%=  booking.flat.title %></h4>
+          <p><strong>Start date:</strong> <%= booking.start_date %></p>
+          <p><strong>End date:</strong> <%= booking.end_date %></p>
+          <p><strong>Status:</strong> <%= booking.status %></p>
 
 
-      <div class="price-reservation">
-        <p>Price of the reservation:</p>
-        <% if (booking.end_date - booking.start_date) == 0%>
-          <%= booking.flat.price%> €
-        <%else%>
-          <%= (booking.flat.price * (booking.end_date - booking.start_date) + booking.flat.price).to_i%> €
-        <%end%>
-      </div>
+          <div class="price-reservation">
+            <p>Price of the reservation:</p>
+            <% if (booking.end_date - booking.start_date) == 0%>
+              <%= booking.flat.price%> €
+            <%else%>
+              <%= (booking.flat.price * (booking.end_date - booking.start_date) + booking.flat.price).to_i%> €
+            <%end%>
+          </div>
 
-
-
-      <div class="review">
-        <% if booking.review %>
-          "<%= booking.review.content %>
-          <% booking.review.rating.times do  %>
-            ⭐️
-          <% end %>"
-        <% end %>
-
-      </div>
-
-      <div class="contact-price-booking">
-        <%= link_to "See flat info", flat_path(booking.flat), class: "button-more-info" %>
-        <%=mail_to booking.user.email, " Email the host", class: "email-to mt-3 button-offer"%>
+          <div class="review">
+            <% if booking.review %>
+              "<%= booking.review.content %>
+              <% booking.review.rating.times do  %>
+                ⭐️
+              <% end %>"
+            <% end %>
+          </div>
+        </div>
+        <div>
+          <div class="contact-price-booking">
+            <%= link_to "See flat info", flat_path(booking.flat), class: "button-more-info" %>
+            <%=mail_to booking.user.email, " Email the host", class: "email-to mt-3 button-offer"%>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -67,39 +67,37 @@
   <h2>List of your flats:</h2>
 
   <div class="grid-container">
-    <%@flats.each do |flat|%>
-    <%=link_to flat_path(flat), class: "card-link" do %>
-    <div class="card-trip">
-      <% if flat.photos.attached? %>
-      <%= cl_image_tag flat.photos.first.key, width: 150, height: 150, gravity: :face %>
-      <% else %>
-      <%= image_tag "https://imagizer.imageshack.com/img922/2089/6PYv26.png", opacity: 0.9, crop: :thumb %>
-      <% end %>
-      <div class="card-content">
-        <div class="card-trip-infos">
-          <div>
-            <h2><%= flat.title %></h2>
-            <div class="city-info">
-              <i class="fas fa-city"></i>   <p><%=flat.city%></p>
+    <% @flats.each do |flat|%>
+      <div class="card-trip">
+        <%= link_to flat_path(flat), class: "card-link" do %>
+          <% if flat.photos.attached? %>
+            <%= cl_image_tag flat.photos.first.key, width: 150, height: 150, gravity: :face %>
+          <% else %>
+            <%= image_tag "https://imagizer.imageshack.com/img922/2089/6PYv26.png", opacity: 0.9, crop: :thumb %>
+          <% end %>
+          <div class="card-content">
+            <div class="card-trip-infos">
+              <div>
+                <h2><%= flat.title %></h2>
+                <div class="city-info">
+                  <i class="fas fa-city"></i>   <p><%=flat.city%></p>
+                </div>
+              </div>
+              <h2 class="card-trip-pricing"><%= flat.price %> €</h2>
             </div>
           </div>
-          <h2 class="card-trip-pricing"><%= flat.price %> €</h2>
-        </div>
-
+          <% flat.bookings.each do |booking| %>
+            <div class='p-3'>
+              <div><%= booking.user.email%></div>
+              <div><%= booking.start_date %></div>
+              <div><%= booking.end_date %> </div>
+              <div><%= booking.status %></div>
+              <%= link_to 'Accept', "/flats/#{booking.flat.id}/bookings/#{booking.id}?status=accepted&fruit=banana", method: :patch, remote: true, class: "btn-sm btn-success" %>
+              <%= link_to 'Reject', "/flats/#{booking.flat.id}/bookings/#{booking.id}?status=rejected", method: :patch, remote: true, class: "btn-sm btn-danger" %>
+            </div>
+          <% end %>
+        <% end %>
       </div>
-    </div>
-      <%end%>
-      <% flat.bookings.each do |booking| %>
-      <ul>
-        <li><%= booking.user.email%></li>
-        <li><%= booking.start_date %></li>
-        <li><%= booking.end_date %> </li>
-        <li><%= booking.status %></li>
-        <%= link_to 'Accept', "/flats/#{booking.flat.id}/bookings/#{booking.id}?status=accepted&fruit=banana", method: :patch, remote: true, class: "btn-sm btn-succes" %>
-        <%= link_to 'Reject', "/flats/#{booking.flat.id}/bookings/#{booking.id}?status=rejected", method: :patch, remote: true, class: "btn-sm btn-danger" %>
-      </ul>
-      <% end %>
-
     <%end%>
   </div>
 </div>
