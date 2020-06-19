@@ -98,7 +98,7 @@ flat9.photos.attach(io: file8, filename: 'flat8.png', content_type: 'image/png')
 #Bookings
 booking1 = Booking.create!(user: user1, flat: flat7, status: "pending", start_date: "2020-04-02", end_date: "2020-04-02")
 booking2 = Booking.create!(user: user2, flat: flat1, status: "pending", start_date: "2020-06-03", end_date: "2020-06-01")
-booking3 = Booking.create!(user: user2, flat: flat2, status: "confirmed", start_date: "2020-02-26", end_date: "2020-03-02")
+booking3 = Booking.create!(user: user2, flat: flat2, status: "pending", start_date: "2020-02-26", end_date: "2020-03-02")
 
 
 puts "Flats created."
