@@ -90,10 +90,10 @@
           </div>
           <% flat.bookings.each do |booking| %>
             <div class='p-3'>
-              <div><%= booking.user.email%></div>
-              <div><%= booking.start_date %></div>
-              <div><%= booking.end_date %> </div>
-              <div><%= booking.status %></div>
+              <div>Email: <%= booking.user.email%></div>
+              <div>Start date: <%= booking.start_date %></div>
+              <div>End date: <%= booking.end_date %> </div>
+              <div><strong>Status: <%= booking.status %></strong></div>
                 <div class="buttons-decision">
                   <%= link_to 'Accept', "/flats/#{booking.flat.id}/bookings/#{booking.id}?status=accepted&fruit=banana", method: :patch, remote: true, class: "btn-accept" %>
                   <%= link_to 'Reject', "/flats/#{booking.flat.id}/bookings/#{booking.id}?status=rejected", method: :patch, remote: true, class: "btn-reject" %>
