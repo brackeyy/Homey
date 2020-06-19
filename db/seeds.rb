@@ -11,9 +11,15 @@ Booking.destroy_all
 Flat.destroy_all
 User.destroy_all
 
-user1 = User.create(email: "Alf@hotmail.com", password: "123456")
-user2 = User.create(email: "nik@gmail.com", password: "123456")
 
+user1 = User.create(email: "Alf@hotmail.com", password: "123456")
+
+puts "Creating users.."
+
+user2 = User.create(email: "nik@gmail.com", password: "123456")
+user3 = User.create(email: "linda@gmail.com", password: "123456")
+
+puts "Users created."
 puts "Creating flats.."
 #1
 file1 = URI.open('https://images.pexels.com/photos/2459/stairs-home-loft-lifestyle.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500')
@@ -95,11 +101,14 @@ flat9.photos.attach(io: file9, filename: 'flat9.png', content_type: 'image/png')
 flat9.photos.attach(io: file7, filename: 'flat7.png', content_type: 'image/png')
 flat9.photos.attach(io: file8, filename: 'flat8.png', content_type: 'image/png')
 
-
+puts "Flats created."
+puts "Creating Bookings"
 #Bookings
 booking1 = Booking.create!(user: user1, flat: flat7, status: "pending", start_date: "2020-04-02", end_date: "2020-04-02")
-booking2 = Booking.create!(user: user2, flat: flat1, status: "pending", start_date: "2020-06-03", end_date: "2020-06-01")
+booking4 = Booking.create!(user: user2, flat: flat8, status: "pending", start_date: "2020-05-03", end_date: "2020-06-01")
+booking2 = Booking.create!(user: user1, flat: flat1, status: "pending", start_date: "2020-06-03", end_date: "2020-06-01")
 booking3 = Booking.create!(user: user2, flat: flat2, status: "pending", start_date: "2020-02-26", end_date: "2020-03-02")
 
+puts "Bookings created."
 
-puts "Flats created."
+
