@@ -5,5 +5,8 @@ def show
   @bookings = Booking.where(user: current_user)
   @flats = Flat.where(user: current_user)
   authorize :dashboard, :show?
-  end
+  @review = Review.new
+end
+
+
 end
