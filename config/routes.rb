@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :flats do
     resources :bookings, except: [:index]
+
+  end
+  resources :bookings, only: [] do
+    resources :reviews, only: [:create]
   end
 get '/dashboard', to: 'dashboards#show'
 end
