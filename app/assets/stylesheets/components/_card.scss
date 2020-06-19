@@ -76,7 +76,9 @@
 }
 }
 
-
+.card-link + .card-link {
+  margin-left: 0;
+}
 .card-product {
   overflow: hidden;
   height: 200px;
