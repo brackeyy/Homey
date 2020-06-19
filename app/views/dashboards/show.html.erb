@@ -18,7 +18,7 @@
         <p><strong>End date:</strong> <%= booking.end_date %></p>
         <p><strong>Status:</strong> <%= booking.status %></p>
 
-        <div class="price-reservation">
+       <div class="price-reservation">
           <p>Price of the reservation:  <% if (booking.end_date - booking.start_date) == 0%></p>
             <%= booking.flat.price%> €
           <%else%>
