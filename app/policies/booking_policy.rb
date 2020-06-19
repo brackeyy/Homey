@@ -18,13 +18,13 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
-  # def update?
-  #   @record.user == @user
-  # end
+  def update?
+    record.flat.user == user
+  end
 
-  # def destroy?
-  #   @record.user == @user
-  # end
+  def destroy?
+    record.flat.user == user
+  end
 
 
 end
